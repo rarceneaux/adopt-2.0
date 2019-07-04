@@ -1,3 +1,18 @@
 body{
-  background-color: aqua;
+  background-color: palegreen;
 }
+.pet-box{
+  display:flex; 
+  justify-content: center;
+  padding:50px;
+}
+.btn{
+  margin:20px;
+}
+
+#main-title{
+  text-align: center;
+}
+
+
+
