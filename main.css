@@ -1,5 +1,5 @@
 body{
-  background-color: palegreen;
+  background-color: white;
 }
 .pet-box{
   display:flex; 
@@ -12,7 +12,36 @@ body{
 
 #main-title{
   text-align: center;
+  margin: 20px;
 }
 
+#pet-cards{
+  display:flex;
+  justify-content: center; 
+  align-content: space-between;
+  flex-wrap: wrap;
 
+}
 
+.card{
+  margin: 20px;
+}
+
+.card-img-top{
+  border: 5px solid white;
+  border-radius: 15px; 
+}
+
+#name{
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid black;
+  background-color: lightgray;
+}
+.card-body{
+  text-align: center;
+}
+
+.pet-type{
+  text-align: center;
+}
