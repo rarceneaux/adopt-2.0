@@ -33,11 +33,58 @@
                      {
                         id:"pet4",
                         name:"Leo",
-                        img:"https://storage.needpix.com/rsynced_images/dog-2471271_1280.jpg",
+                        img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
                         color:"blue",
                         specialSkill:"Walking While Dead",
                         typeOfPet: "Cat"
                       },
+
+                      {
+                        id: "pet5",
+                        name:"Baby Sinclair",
+                        img:"https://i.ytimg.com/vi/HNR4hKbSH7I/hqdefault.jpg",
+                        color:"Red",
+                        specialSkill:"Hitting Daddy",
+                        typeOfPet: "Dino"
+                      },
+
+                      {
+                        id: "pet6",
+                        name:"Earl Sinclair",
+                        img:"https://vignette.wikia.nocookie.net/muppet/images/9/95/Dinosaurs-EarlSinclair.jpg/revision/latest/scale-to-width-down/280?cb=20141129001953",
+                        color:"Red",
+                        specialSkill:"Getting Hit",
+                        typeOfPet: "Dino"
+                      },
+
+                      {
+                        id: "pet7",
+                        name:"Dino",
+                        img:"https://dyn1.heritagestatic.com/lf?set=path%5B1%2F2%2F6%2F1%2F4%2F12614592%5D%2Csizedata%5B850x600%5D&call=url%5Bfile%3Aproduct.chain%5D",
+                        color: "Red",
+                        specialSkill:"Dancing",
+                        typeOfPet: "Dino"
+                      },
+                      
+                      {
+                       id: "pet8",
+                       name:"Garfield",
+                       img:"https://catnamescity.com/wp-content/uploads/2017/07/famous-cat-names-garfield.jpg",
+                       color: "Blue",
+                       specialSkill: "Getting in Trouble",
+                       typeOfPet: "Cat"
+                      },
+
+                      {
+                        id: "pet9",
+                        name:"Tom",
+                        img:"https://i.pinimg.com/originals/92/a6/2f/92a62f0221f58fe503a15fcb13f5c107.png",
+                        color: "Blue",
+                        specialSkill: "Chasing Jerry",
+                        typeOfPet: "Cat"
+                       },
+ 
+
 ];
 
 
