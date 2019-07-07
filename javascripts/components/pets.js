@@ -1,5 +1,10 @@
 import {printToDom} from "../helpers/util.js";
 
+// thinking of a way to have cards auto fill in card colors with pet type
+// const catCards = 'blue';
+// const dogCards =  'green';
+// const dinoCards = 'red';
+
 // made array of objects key value pairs
 const pets = [
   { 
@@ -16,17 +21,17 @@ const pets = [
     name:"Kobe",
     img:"https://live.staticflickr.com/5472/9386968830_91cfc48341_b.jpg",
     color:"green",
-    specialSkill:"Sleeping",
+    specialSkill:"Eating",
     typeOfPet: "Dog"
   },
 
 
     { 
       id:"pet3",
-      name:"Lil Bit",
-      img:"https://storage.needpix.com/rsynced_images/dog-2471271_1280.jpg",
+      name:"Napoleon",
+      img:"https://cdn.pixabay.com/photo/2014/09/28/10/02/german-shepherd-464612_960_720.jpg",
       color:"green",
-      specialSkill:"Eating",
+      specialSkill:"Hunting",
       typeOfPet: "Dog"
     },
 
@@ -36,7 +41,7 @@ const pets = [
         name:"Leo",
         img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
         color:"blue",
-        specialSkill:"Walking While Dead",
+        specialSkill:"Sleeping",
         typeOfPet: "Cat"
       },
 
@@ -87,13 +92,13 @@ const pets = [
 
 ];
 
-// Pets Builder Function 
+// Pets Builder Function to loop over pets
 const petsBuilder = () => {
   let petString = " ";
   for(let i = 0;i<pets.length;i++){
   petString += `<div class="card" style="width: 18rem;" id="${pets[i].id}">`;
   petString += `<div id="name"<h5>${pets[i].name}</h5></div>`;
-  petString += `<img src="${pets[i].img}" class="card-img-top" alt="picture"></<img>`;
+  petString += `<img src="${pets[i].img}" class="card-img-top alt="picture"></<img>`;
   petString += `<div class="card-body" id="color" ${pets[i].color}>`;
   petString += `<p class="card-text">Special Skill: ${pets[i].specialSkill}</p></div>`;
   petString += `<h5 class="pet-type">${pets[i].typeOfPet}</h5>`;
@@ -102,5 +107,50 @@ const petsBuilder = () => {
 printToDom(petString,"pet-cards");
 }
 
+    // // commmented out trying to figure out if I need or know how to json form e8
+    // export {petsBuilder};
+// Sort Btn Events here cat, dog, dino, all
+// testing out cat btn its not working print 3 of the winston cards to dom and the others stay on page
+const sortPets = (e) => {
+  const type = e.target.id;
+  if(type === 'cats'){
+    let catString = " ";
+    for(let i= 0;i<pets.length;i++){ 
+      if(pets[i].typeOfPet === "Cat"){
+        catString += petsFilterBuilder(pets);
+      }
+    }
+    printToDom(catString,'pet-cards');
+   
+  }
+  }
+ 
+// Exported sortedPets to main.js to call on AppInt
+const sortedPets = () => {
+    const catsBtns = document.getElementById('cats');
+    const dogsBtns = document.getElementById('dogs');
+    const dinosBtns = document.getElementById('dinos');
+    catsBtns.addEventListener('click',sortPets);
+    dogsBtns.addEventListener('click',sortPets);
+    dinosBtns.addEventListener('click',sortPets);
+    };
 
-export {petsBuilder};
+   // Pets Filter Builder Function 
+   const petsFilterBuilder = (pets) => {
+    let filterString = '';
+    for(let i = 0;i<pets.length;i++){
+     filterString += `<div class="card" style="width: 18rem; id="${pets[i].id}">`;
+     filterString += `<div id="name"<h5>${pets[i].name}</h5></div>`;
+     filterString += `<img src="${pets[i].img}" class="card-img-top" alt="picture"></<img>`;
+     filterString += `<div class="card-body" id="color" ${pets[i].color}>`;
+     filterString += `<p class="card-text">Special Skill: ${pets[i].specialSkill}</p></div>`;
+     filterString += `<h5 class="pet-type">${pets[i].typeOfPet}</h5>`;
+     filterString += `</div>`;
+     filterString += `</div>`;
+  
+    return filterString;
+     }
+  
+    }
+ 
+export {petsBuilder,sortedPets};
