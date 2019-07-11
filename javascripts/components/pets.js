@@ -84,8 +84,9 @@ const pets = [
         specialSkill: "Chasing Jerry",
         typeOfPet: "cats"
        },
-
-];
+      ]
+ console.log(pets[0].typeOfPet);
+ console.log(pets[0].name);
 
 
 // Pets Builder Function to loop over pets to print to DOM Called on main.js--initializeApp();
@@ -105,20 +106,24 @@ printToDom(petString,"pet-cards");
 
  
 // Sort Btn Events here cat, dog, dino, all
-// BUG-- testing out cat btn its not working print 3 of the winston cards to dom and the others stay on page-dead
-// BUG 2 prints out all 9 cards now-alive
+// BUG 1 testing out cat btn its not working print 3 of the winston cards to dom and the others stay on page-DEAD
+// BUG 2 prints out all 9 cards now-DEAD
+// BUG 3 prints out only 5 cards 2 cats disappear-ALIVE
 const sortPets = (e) => {
   const type = e.target.id;
-  if(type === 'cats'){
-    let catString = " ";
-    for(let i=0;i<pets.length;i++){
-      if(pets.typeOfPet === 'cats');
-      catString += petsFilterBuilder(pets);
-    printToDom(catString,'pet-cards');
-  } 
-}
-}  
-// Exported sortedPets to main.js to call on AppInt pulled back in to figure out bug
+  if(type === "cats"){
+    var catString = " ";
+    for(let i =0;i<pets[i].typeOfPet.length;i++){
+        if(pets[i].typeOfPet === "cats"){
+          catString += petsFilterBuilder();
+      }
+    } 
+  }
+  printToDom(catString,'filtered'); 
+};
+
+// Exported sortedPets to main.js to call on AppInt pulled back in to figure out bug-dead
+//CALL sortedPets HERE//
 const sortedPets = () => {
     const catsBtns = document.getElementById('cats');
     const dogsBtns = document.getElementById('dogs');
@@ -132,7 +137,7 @@ const sortedPets = () => {
    // Pets Filter Builder Function 
    const petsFilterBuilder = () => {
     let filterString = " ";
-    for(let i = 0;i<pets.length;i++){
+    for(let i = 0;i<pets[i].typeOfPet.length;i++){
      filterString += `<div class="card" style="width: 18rem;" id="${pets[i].id}">`;
      filterString += `<div id="name"<h5>${pets[i].name}</h5></div>`;
      filterString += `<img src="${pets[i].img}" class="card-img-top" alt="picture"></<img>`;
