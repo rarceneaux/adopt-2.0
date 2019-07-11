@@ -105,19 +105,19 @@ printToDom(petString,"pet-cards");
 
  
 // Sort Btn Events here cat, dog, dino, all
-// BUG-- testing out cat btn its not working print 3 of the winston cards to dom and the others stay on page
+// BUG-- testing out cat btn its not working print 3 of the winston cards to dom and the others stay on page-dead
+// BUG 2 prints out all 9 cards now-alive
 const sortPets = (e) => {
   const type = e.target.id;
   if(type === 'cats'){
     let catString = " ";
-    for(let i= 0;i<pets.length;i++){ 
-      
-      }
-    }
+    for(let i=0;i<pets.length;i++){
+      if(pets.typeOfPet === 'cats');
+      catString += petsFilterBuilder(pets);
     printToDom(catString,'pet-cards');
-   
-  }
-  
+  } 
+}
+}  
 // Exported sortedPets to main.js to call on AppInt pulled back in to figure out bug
 const sortedPets = () => {
     const catsBtns = document.getElementById('cats');
@@ -127,10 +127,10 @@ const sortedPets = () => {
     dogsBtns.addEventListener('click',sortPets);
     dinosBtns.addEventListener('click',sortPets);
     };
-  
+  sortedPets();
 
    // Pets Filter Builder Function 
-   const petsFilterBuilder = (pets) => {
+   const petsFilterBuilder = () => {
     let filterString = " ";
     for(let i = 0;i<pets.length;i++){
      filterString += `<div class="card" style="width: 18rem;" id="${pets[i].id}">`;
