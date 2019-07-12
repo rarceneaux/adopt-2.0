@@ -1,8 +1,8 @@
-import {petsBuilder,sortedPets} from './components/pets.js';
+import {petsBuilder} from './components/pets.js';
 
 const initializeApp = () =>{
-  petsBuilder();
-  sortedPets();
+      petsBuilder(); 
+  
 };
 
 initializeApp();

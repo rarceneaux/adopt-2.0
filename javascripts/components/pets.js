@@ -84,10 +84,9 @@ const pets = [
         specialSkill: "Chasing Jerry",
         typeOfPet: "cats"
        },
-      ]
- console.log(pets[0].typeOfPet);
- console.log(pets[0].name);
-
+      ];
+  // console.log(pets[2].name);//should console log Napoleon
+  
 
 // Pets Builder Function to loop over pets to print to DOM Called on main.js--initializeApp();
 const petsBuilder = () => {
@@ -113,16 +112,37 @@ const sortPets = (e) => {
   const type = e.target.id;
   if(type === "cats"){
     var catString = " ";
-    for(let i =0;i<pets[i].typeOfPet.length;i++){
+    for(let i =0;i<pets.length;i++){
         if(pets[i].typeOfPet === "cats"){
-          catString += petsFilterBuilder();
+          catString += petsFilterBuilder(pets[i]);
       }
-    } 
+    }
   }
-  printToDom(catString,'filtered'); 
-};
 
-// Exported sortedPets to main.js to call on AppInt pulled back in to figure out bug-dead
+  printToDom(catString,'filtered'); 
+} else
+if (type === "dogs"){
+  var dogString = " ";
+  for(let i =0;i<pets.length;i++){
+    if(pets[i].typeOfPet === "dogs"){
+      dogString += petsFilterBuilder(pets[i]);
+    }
+  }
+}
+printToDom(dogString,'filtered');
+
+} else {
+  (type === "dinos")
+  var dinosString = " ";
+  for(let i = 0;i<pets.length;i++){
+    if(pets[i].typeOfPet === "dinos"){
+      dinosString += petsFilterBuilder(pets[i]);
+    }
+  }
+  printToDom(dinosString,"filtered");
+}
+
+
 //CALL sortedPets HERE//
 const sortedPets = () => {
     const catsBtns = document.getElementById('cats');
@@ -135,22 +155,25 @@ const sortedPets = () => {
   sortedPets();
 
    // Pets Filter Builder Function 
-   const petsFilterBuilder = () => {
+   const petsFilterBuilder = (pet) => {
     let filterString = " ";
-    for(let i = 0;i<pets[i].typeOfPet.length;i++){
-     filterString += `<div class="card" style="width: 18rem;" id="${pets[i].id}">`;
-     filterString += `<div id="name"<h5>${pets[i].name}</h5></div>`;
-     filterString += `<img src="${pets[i].img}" class="card-img-top" alt="picture"></<img>`;
-     filterString += `<div class="card-body" id="color" ${pets[i].color}>`;
-     filterString += `<p class="card-text">Special Skill: ${pets[i].specialSkill}</p></div>`;
-     filterString += `<h5 class="pet-type">${pets[i].typeOfPet}</h5>`;
+     filterString += `<div class="card" style="width: 18rem;" id="${pet.id}">`;
+     filterString += `<div id="name"<h5>${pet.name}</h5></div>`;
+     filterString += `<img src="${pet.img}" class="card-img-top" alt="picture"></<img>`;
+     filterString += `<div class="card-body" id="color" ${pet.color}>`;
+     filterString += `<p class="card-text">Special Skill: ${pet.specialSkill}</p></div>`;
+     filterString += `<h5 class="pet-type">${pet.typeOfPet}</h5>`;
      filterString += `</div>`;
      filterString += `</div>`;
      filterString += `</div>`;
-    }
      return filterString;
+   }
   
-    };
+    
     
  
 export {petsBuilder};
+
+function newFunction() {
+  printToDom(dinosSting, 'filtered');
+}
