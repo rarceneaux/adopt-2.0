@@ -84,7 +84,7 @@ const pets = [
         specialSkill: "Chasing Jerry",
         typeOfPet: "cats"
        },
-      ];
+      ]
   // console.log(pets[2].name);//should console log Napoleon
   
 
@@ -102,48 +102,41 @@ const petsBuilder = () => {
 }
 printToDom(petString,"pet-cards");
 }
-
  
 // Sort Btn Events here cat, dog, dino, all
-// BUG 1 testing out cat btn its not working print 3 of the winston cards to dom and the others stay on page-DEAD
-// BUG 2 prints out all 9 cards now-DEAD
-// BUG 3 prints out only 5 cards 2 cats disappear-ALIVE
-const sortPets = (e) => {
+// CatsBtn is work adds all cats to page 7-12-19
+const sortPets = (e) =>{
   const type = e.target.id;
-  if(type === "cats"){
-    var catString = " ";
-    for(let i =0;i<pets.length;i++){
-        if(pets[i].typeOfPet === "cats"){
-          catString += petsFilterBuilder(pets[i]);
+  if (type === "cats") {
+    let catString = " ";
+    for(let i =0;i<pets.length;i++)
+      if (pets[i].typeOfPet === "cats"){
+        catString += petsFilterBuilder(pets[i]);
+      }
+      printToDom(catString,"pet-cards");  
+  } else if
+  (type === "dogs"){
+    let dogString = " ";
+    for(let i = 0;i<pets.length;i++){
+      if (pets[i].typeOfPet === "dogs"){
+        dogString += petsFilterBuilder(pets[i]);
       }
     }
+    printToDom(dogString,"pet-cards");
+  } else {
+    (type === "dinos")
+    let dinosString = " ";
+    for(let i = 0;i<pets.length;i++){
+      if (pets[i].typeOfPet === "dinos"){
+        dinosString += petsFilterBuilder(pets[i]);
   }
-
-  printToDom(catString,'filtered'); 
-} else
-if (type === "dogs"){
-  var dogString = " ";
-  for(let i =0;i<pets.length;i++){
-    if(pets[i].typeOfPet === "dogs"){
-      dogString += petsFilterBuilder(pets[i]);
     }
+    printToDom(dinosString,"pet-cards");
   }
-}
-printToDom(dogString,'filtered');
-
-} else {
-  (type === "dinos")
-  var dinosString = " ";
-  for(let i = 0;i<pets.length;i++){
-    if(pets[i].typeOfPet === "dinos"){
-      dinosString += petsFilterBuilder(pets[i]);
-    }
-  }
-  printToDom(dinosString,"filtered");
 }
 
 
-//CALL sortedPets HERE//
+// CALL sortedPets HERE//
 const sortedPets = () => {
     const catsBtns = document.getElementById('cats');
     const dogsBtns = document.getElementById('dogs');
@@ -154,7 +147,23 @@ const sortedPets = () => {
     };
   sortedPets();
 
-   // Pets Filter Builder Function 
+
+const allPets = (e) =>{
+  const selectedBtn = e.target.id;
+  if (selectedBtn === "cats","dogs","dinos") {
+    petsBuilder(pets);
+  } else {
+    const sortPets = pets.filter(animal => animal.selectedBtn === selectedBtn);
+    petsBuilder(sortPets);
+  }
+}  
+// Called unsortPets on main.js--initializeApp();
+const unsortPets = () =>{
+  const showAllBtn = document.getElementById("all-pets");
+  showAllBtn.addEventListener('click',allPets);
+}
+
+   // Pet Filter Builder Function 
    const petsFilterBuilder = (pet) => {
     let filterString = " ";
      filterString += `<div class="card" style="width: 18rem;" id="${pet.id}">`;
@@ -172,8 +181,4 @@ const sortedPets = () => {
     
     
  
-export {petsBuilder};
-
-function newFunction() {
-  printToDom(dinosSting, 'filtered');
-}
+export {petsBuilder,unsortPets};
