@@ -97,14 +97,14 @@ const petsBuilder = () => {
   petString += `<img src="${pets[i].img}" class="card-img-top alt="picture"></<img>`;
   petString += `<div class="card-body" id="color" ${pets[i].color}>`;
   petString += `<p class="card-text">Special Skill: ${pets[i].specialSkill}</p></div>`;
-  petString += `<h5 class="pet-type">${pets[i].typeOfPet}</h5>`;
+  petString += `<div id="color"class="pet-type"><h5>${pets[i].typeOfPet}</h5></div></>`;
   petString += `</div>`;
 }
 printToDom(petString,"pet-cards");
 }
- 
-// Sort Btn Events here cat, dog, dino, all
-// CatsBtn is work adds all cats to page 7-12-19
+
+// Sort Btn Events here cats, dogs, dinos,
+
 const sortPets = (e) =>{
   const type = e.target.id;
   if (type === "cats") {
@@ -112,56 +112,49 @@ const sortPets = (e) =>{
     for(let i =0;i<pets.length;i++)
       if (pets[i].typeOfPet === "cats"){
         catString += petsFilterBuilder(pets[i]);
+        // this needs to be in another function propably BELOW:
+        let thisDiv1 = document.getElementById("pet-cards");
+        thisDiv1.style.display = "none";
       }
-      printToDom(catString,"pet-cards");  
+      printToDom(catString,"selected-pet");  
   } else if
   (type === "dogs"){
     let dogString = " ";
     for(let i = 0;i<pets.length;i++){
       if (pets[i].typeOfPet === "dogs"){
         dogString += petsFilterBuilder(pets[i]);
+        let thisDiv2 = document.getElementById("selected-pet");
+        thisDiv2.style.display = "none";
       }
     }
-    printToDom(dogString,"pet-cards");
+    printToDom(dogString,"ruf");
   } else {
     (type === "dinos")
     let dinosString = " ";
     for(let i = 0;i<pets.length;i++){
       if (pets[i].typeOfPet === "dinos"){
         dinosString += petsFilterBuilder(pets[i]);
+        let thisDiv3 = document.getElementById("ruf");
+        thisDiv3.style.display = "none";
   }
     }
-    printToDom(dinosString,"pet-cards");
+    printToDom(dinosString,"roar");
   }
 }
 
 
+
 // CALL sortedPets HERE//
 const sortedPets = () => {
-    const catsBtns = document.getElementById('cats');
-    const dogsBtns = document.getElementById('dogs');
-    const dinosBtns = document.getElementById('dinos');
+    const catsBtns = document.getElementById("cats");
+    const dogsBtns = document.getElementById("dogs");
+    const dinosBtns = document.getElementById("dinos");
     catsBtns.addEventListener('click',sortPets);
     dogsBtns.addEventListener('click',sortPets);
     dinosBtns.addEventListener('click',sortPets);
     };
   sortedPets();
 
-
-const allPets = (e) =>{
-  const selectedBtn = e.target.id;
-  if (selectedBtn === "cats","dogs","dinos") {
-    petsBuilder(pets);
-  } else {
-    const sortPets = pets.filter(animal => animal.selectedBtn === selectedBtn);
-    petsBuilder(sortPets);
-  }
-}  
-// Called unsortPets on main.js--initializeApp();
-const unsortPets = () =>{
-  const showAllBtn = document.getElementById("all-pets");
-  showAllBtn.addEventListener('click',allPets);
-}
 
    // Pet Filter Builder Function 
    const petsFilterBuilder = (pet) => {
@@ -177,8 +170,9 @@ const unsortPets = () =>{
      filterString += `</div>`;
      return filterString;
    }
-  
-    
-    
+
+
+
  
-export {petsBuilder,unsortPets};
+ 
+export {petsBuilder};
