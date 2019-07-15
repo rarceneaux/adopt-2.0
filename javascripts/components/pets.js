@@ -97,7 +97,7 @@ const petsBuilder = () => {
   petString += `<img src="${pets[i].img}" class="card-img-top img-thumbnail" alt="picture"></<img>`;
   petString += `<div class="card-body" id="color" ${pets[i].color}>`;
   petString += `<p class="card-text">Special Skill: ${pets[i].specialSkill}</p></div>`;
-  petString += `<div id="color"class="pet-type"><h5>${pets[i].typeOfPet}</h5></div></>`;
+  petString += `<div id="colorA"class="pet-type"><h5>${pets[i].typeOfPet}</h5></div></>`;
   petString += `</div>`;
 }
 printToDom(petString,"pet-cards");
@@ -168,13 +168,29 @@ const filterAll = (e) => {
   }
 };
 
-
 const allFilter = () =>{
   const allPets = document.getElementById("all-pets");
   allPets.addEventListener('click',filterAll);
 };
 allFilter();
   
+// add colors to the bottom of pet cards
+const petColors = () =>{
+  let tryIt = document.getElementById("colorA").style.backgroundColor = "green";
+  // let cardPetColor = document.getElementsByClassName(pet-type);
+  // console.log(cardPetColor.innerHTML);
+//   if (cardPetColor.innerHTML === "dogs") {
+//     cardPetColor.backgroundColor = "green";
+//   } else if (condition) {
+    
+//   } else {
+    
+//   } {
+    
+//   }
+ };
+
+
 
    // Pet Filter Builder Function 
    const petsFilterBuilder = (pet) => {
@@ -184,12 +200,11 @@ allFilter();
      filterString += `<img src="${pet.img}" class="card-img-top img-thumbnail alt="picture"></<img>`;
      filterString += `<div class="card-body" id="color" ${pet.color}>`;
      filterString += `<p class="card-text">Special Skill: ${pet.specialSkill}</p></div>`;
-     filterString += `<h5 class="pet-type">${pet.typeOfPet}</h5>`;
+     filterString += `<div id="colorA" class="pet-type"><h5>${pet.typeOfPet}</5></div>`;
      filterString += `</div>`;
      filterString += `</div>`;
      filterString += `</div>`;
      return filterString;
    };
 
-
-export {petsBuilder};
+export {petsBuilder,petColors};
