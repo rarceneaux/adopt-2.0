@@ -70,7 +70,7 @@ const pets = [
       {
        id: "pet8",
        name:"Garfield",
-       img:"https://catnamescity.com/wp-content/uploads/2017/07/famous-cat-names-garfield.jpg",
+       img:"https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg",
        color: "blue",
        specialSkill: "Getting in Trouble",
        typeOfPet: "cats"
@@ -79,7 +79,7 @@ const pets = [
       {
         id: "pet9",
         name:"Tom",
-        img:"https://i.pinimg.com/originals/92/a6/2f/92a62f0221f58fe503a15fcb13f5c107.png",
+        img:"http://www.hscipets.org/images/pets07/jennifurr01.jpg",
         color: "blue",
         specialSkill: "Chasing Jerry",
         typeOfPet: "cats"
@@ -94,7 +94,7 @@ const petsBuilder = () => {
   for(let i = 0;i<pets.length;i++){
   petString += `<div class="card" style="width: 18rem;" id="${pets[i].id}">`;
   petString += `<div id="name"<h5>${pets[i].name}</h5></div>`;
-  petString += `<img src="${pets[i].img}" class="card-img-top alt="picture"></<img>`;
+  petString += `<img src="${pets[i].img}" class="card-img-top img-thumbnail" alt="picture"></<img>`;
   petString += `<div class="card-body" id="color" ${pets[i].color}>`;
   petString += `<p class="card-text">Special Skill: ${pets[i].specialSkill}</p></div>`;
   petString += `<div id="color"class="pet-type"><h5>${pets[i].typeOfPet}</h5></div></>`;
@@ -108,6 +108,7 @@ printToDom(petString,"pet-cards");
 const sortPets = (e) =>{
   const type = e.target.id;
   if (type === "cats") {
+    // console.log(e);
     let catString = " ";
     for(let i =0;i<pets.length;i++)
       if (pets[i].typeOfPet === "cats"){
@@ -119,6 +120,7 @@ const sortPets = (e) =>{
       printToDom(catString,"selected-pet");  
   } else if
   (type === "dogs"){
+    // console.log(e);
     let dogString = " ";
     for(let i = 0;i<pets.length;i++){
       if (pets[i].typeOfPet === "dogs"){
@@ -140,7 +142,7 @@ const sortPets = (e) =>{
     }
     printToDom(dinosString,"roar");
   }
-}
+};
 
 
 
@@ -155,13 +157,31 @@ const sortedPets = () => {
     };
   sortedPets();
 
+// filter all pets to bring all back to DOM
+const filterAll = (e) => {
+  const all = e.target.id;
+  if (all === 'all-pets'){
+  let thisDiv4 = document.getElementById('roar');
+  thisDiv4.style.display = "none";
+  let thisDiv1a = document.getElementById("pet-cards");
+  thisDiv1a.style.display = "flex";
+  }
+};
+
+
+const allFilter = () =>{
+  const allPets = document.getElementById("all-pets");
+  allPets.addEventListener('click',filterAll);
+};
+allFilter();
+  
 
    // Pet Filter Builder Function 
    const petsFilterBuilder = (pet) => {
     let filterString = " ";
      filterString += `<div class="card" style="width: 18rem;" id="${pet.id}">`;
      filterString += `<div id="name"<h5>${pet.name}</h5></div>`;
-     filterString += `<img src="${pet.img}" class="card-img-top" alt="picture"></<img>`;
+     filterString += `<img src="${pet.img}" class="card-img-top img-thumbnail alt="picture"></<img>`;
      filterString += `<div class="card-body" id="color" ${pet.color}>`;
      filterString += `<p class="card-text">Special Skill: ${pet.specialSkill}</p></div>`;
      filterString += `<h5 class="pet-type">${pet.typeOfPet}</h5>`;
@@ -169,10 +189,7 @@ const sortedPets = () => {
      filterString += `</div>`;
      filterString += `</div>`;
      return filterString;
-   }
+   };
 
 
-
- 
- 
 export {petsBuilder};
