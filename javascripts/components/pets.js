@@ -85,7 +85,7 @@ const pets = [
         typeOfPet: "cats"
        },
       ]
-  // console.log(pets[2].name);//should console log Napoleon
+   console.log(pets[2].color);//should console log Napoleon
   
 
 // Pets Builder Function to loop over pets to print to DOM Called on main.js--initializeApp();
@@ -97,7 +97,7 @@ const petsBuilder = () => {
   petString += `<img src="${pets[i].img}" class="card-img-top img-thumbnail" alt="picture"></<img>`;
   petString += `<div class="card-body" id="color" ${pets[i].color}>`;
   petString += `<p class="card-text">Special Skill: ${pets[i].specialSkill}</p></div>`;
-  petString += `<div id="colorA"class="pet-type"><h5>${pets[i].typeOfPet}</h5></div></>`;
+  petString += `<div id="colorA"class="pet"><h5>${pets[i].typeOfPet}</h5></div></>`;
   petString += `</div>`;
 }
 printToDom(petString,"pet-cards");
@@ -173,23 +173,23 @@ const allFilter = () =>{
   allPets.addEventListener('click',filterAll);
 };
 allFilter();
-  
-// add colors to the bottom of pet cards
-const petColors = () =>{
-  let tryIt = document.getElementById("colorA").style.backgroundColor = "green";
-  // let cardPetColor = document.getElementsByClassName(pet-type);
-  // console.log(cardPetColor.innerHTML);
-//   if (cardPetColor.innerHTML === "dogs") {
-//     cardPetColor.backgroundColor = "green";
-//   } else if (condition) {
-    
-//   } else {
-    
-//   } {
-    
-//   }
- };
+ 
 
+// line 181 made an object "like" of cardpetColor that had length now can run loop over like normal (OMG!)7-15-19
+// add colors to the bottom of pet cards =console.log(document.getElementById('colorA').textContent);line 193
+const petColors = () =>{
+  let cardPetColor = document.getElementsByClassName("pet");
+  for(let i =0;i<cardPetColor.length;i++){
+    // console.log(cardPetColor[i].textContent);
+if (cardPetColor[i].textContent === "dogs") {
+    cardPetColor[i].style.backgroundColor = "green";
+  } else if (cardPetColor[i].textContent === "dinos") {
+    cardPetColor[i].style.backgroundColor = "red";
+  } else { cardPetColor[i].textContent === "cats"
+  cardPetColor[i].style.backgroundColor = "blue";
+  } 
+ };
+}
 
 
    // Pet Filter Builder Function 
@@ -200,7 +200,7 @@ const petColors = () =>{
      filterString += `<img src="${pet.img}" class="card-img-top img-thumbnail alt="picture"></<img>`;
      filterString += `<div class="card-body" id="color" ${pet.color}>`;
      filterString += `<p class="card-text">Special Skill: ${pet.specialSkill}</p></div>`;
-     filterString += `<div id="colorA" class="pet-type"><h5>${pet.typeOfPet}</5></div>`;
+     filterString += `<div id="colorA" class="pet"><h5>${pet.typeOfPet}</h5></div>`;
      filterString += `</div>`;
      filterString += `</div>`;
      filterString += `</div>`;

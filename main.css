@@ -43,7 +43,7 @@ body{
   padding: 10px;
   box-shadow: inset 0 0 70px;
 }
-.card-body,.pet-type{
+.card-body,.pet{
   text-align: center;
 }
 

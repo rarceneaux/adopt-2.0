@@ -1,8 +1,9 @@
-import {petsBuilder} from './components/pets.js';
+import {petsBuilder,petColors} from './components/pets.js';
 
 const initializeApp = () =>{
       petsBuilder();
-      
+      petColors();
+      // petColors2();
       
   
 };
