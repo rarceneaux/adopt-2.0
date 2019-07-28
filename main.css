@@ -24,12 +24,15 @@ body{
 
 .card{
   margin: 20px;
+  
 }
+
+
 
 .card-img-top{
   border-radius: 25px;
   padding: 5px;
-  margin: 20px; 
+  margin: 50px; 
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -43,12 +46,13 @@ body{
   padding: 10px;
   box-shadow: inset 0 0 70px;
 }
-.card-body,.pet{
+.pet{
   text-align: center;
 }
 
 .card-text{
   font-style: italic;
+  text-align: center;
 }
 
 #selected-pet{
@@ -71,4 +75,8 @@ display:flex;
 justify-content: center; 
 align-content: space-between;
 flex-wrap: wrap; 
+}
+
+#colorA{
+  padding: 10px;
 }
